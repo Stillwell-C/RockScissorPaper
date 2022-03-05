@@ -27,23 +27,23 @@
        
 
         function playGame(playerSelection, computerSelection) {
-            if (playerSelection == "rock" && computerSelection == "paper") {
+            if (playerSelection === "rock" && computerSelection === "paper") {
                 return "You Lose! Paper beats Rock.";
-            } else if (playerSelection == "rock" && computerSelection == "scissors") {
+            } else if (playerSelection === "rock" && computerSelection === "scissors") {
                 return "You Win! Rock beats Scissors.";
-            } else if (playerSelection == "rock" && computerSelection == "rock") {
+            } else if (playerSelection === "rock" && computerSelection === "rock") {
                 return "Rock and Rock. It\'s a tie.";
-            } else if (playerSelection == "paper" && computerSelection == "paper") {
+            } else if (playerSelection === "paper" && computerSelection === "paper") {
                 return "Paper and Paper. It\'s a tie.";
-            } else if (playerSelection == "paper" && computerSelection == "scissors") {
+            } else if (playerSelection === "paper" && computerSelection === "scissors") {
                 return "You Lose! Scissors beat paper.";
-            } else if (playerSelection == "paper" && computerSelection == "rock") {
+            } else if (playerSelection === "paper" && computerSelection === "rock") {
                 return "You Win! Paper beats rock.";
-            } else if (playerSelection == "scissors" && computerSelection == "paper") {
+            } else if (playerSelection === "scissors" && computerSelection === "paper") {
                 return "You Win! Scissors beat paper";
-            } else if (playerSelection == "scissors" && computerSelection == "scissors") {
+            } else if (playerSelection === "scissors" && computerSelection === "scissors") {
                 return "Scissors and scissors. It\'s a tie."
-            } else if (playerSelection == "scissors" && computerSelection == "rock") {
+            } else if (playerSelection === "scissors" && computerSelection === "rock") {
                 return "You Lose! Rock beats scissors."
             } else {
                 return "Please try again. Make sure to enter Rock, Scissors, or Paper."
