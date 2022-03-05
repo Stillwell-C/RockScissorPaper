@@ -7,100 +7,82 @@
 <body>
     <script>
 
-        //Run playGame five times & report score
-        // function Game() { 
 
+        let wins = 0;
+        let losses = 0;
+        let ties = 0;
+
+        //Array for computerplay
+        let selectArray = [ 
+            "rock",
+            "scissors",
+            "paper"
+        ]
+        
+        //Randomly output a selection
+        function computerPlay() { 
+            let selection = selectArray[Math.floor(Math.random()*selectArray.length)];
+            return selection;
+        }
+        
+        //Take the selections and find a winner
+        function playGame(playerSelection, computerSelection) { 
+            if (playerSelection === "rock" && computerSelection === "paper") {
+                alert("You Lose! Paper beats Rock.");
+                return losses++;
+            } else if (playerSelection === "rock" && computerSelection === "scissors") {
+                alert("You Win! Rock beats Scissors.");
+                return wins++;
+            } else if (playerSelection === "rock" && computerSelection === "rock") {
+                alert("Rock and Rock. It\'s a tie.");
+                return ties++;
+            } else if (playerSelection === "paper" && computerSelection === "paper") {
+                alert("Paper and Paper. It\'s a tie.");
+                return ties++;
+            } else if (playerSelection === "paper" && computerSelection === "scissors") {
+                alert("You Lose! Scissors beat paper.");
+                return losses++;
+            } else if (playerSelection === "paper" && computerSelection === "rock") {
+                alert("You Win! Paper beats rock.");
+                return wins++;
+            } else if (playerSelection === "scissors" && computerSelection === "paper") {
+                alert("You Win! Scissors beat paper");
+                return wins++;
+            } else if (playerSelection === "scissors" && computerSelection === "scissors") {
+                alert("Scissors and scissors. It\'s a tie.");
+                return ties++;
+            } else if (playerSelection === "scissors" && computerSelection === "rock") {
+                alert("You Lose! Rock beats scissors.");
+                return losses++;
+            } else {
+                alert("Please try again. Make sure to enter Rock, Scissors, or Paper.");
+            }
             
-            let win;
-            let loss;
-            let tie;
+        }
 
-            let wins = 0;
-            let losses = 0;
-            let ties = 0;
 
+        function game() { 
 
             //Run playgame five times
             for (let i = 0; i < 5; i++) { 
 
-                    //Array for computerplay
-                    let selectArray = [ 
-                        "rock",
-                        "scissors",
-                        "paper"
-                    ]
+                    //Make variable for computer's selection
+                    const computerSelection = computerPlay(); 
                     
-                    // //Randomly output a selection
-                    // function computerPlay() { 
-                    //     let selection = selectArray[Math.floor(Math.random()*selectArray.length)];
-                    //     return selection;
-                    // }
+                    //Request player's input
+                    let playerInput = prompt("Please select either rock, scissors, or paper", " ")  
 
-                    // //Make variable for computer's selection
-                    // const computerSelection = computerPlay(); 
-                    
-                    // //Request player's input
-                    // let playerInput = prompt("Please select either rock, scissors, or paper", " ")  
+                    //Changes player's input into lowercase
+                    const playerSelection = playerInput.toLowerCase() 
 
-                    // //Changes player's input into lowercase
-                    // const playerSelection = playerInput.toLowerCase() 
-
-                    const playerSelection = "rock"
-                    const computerSelection = "paper"
-
-                    //Take the selections and find a winner
-                    function playGame(playerSelection, computerSelection) { 
-                        if (playerSelection === "rock" && computerSelection === "paper") {
-                            alert("You Lose! Paper beats Rock.");
-                            return losses++;
-                        } else if (playerSelection === "rock" && computerSelection === "scissors") {
-                            alert("You Win! Rock beats Scissors.");
-                            return wins++;
-                        } else if (playerSelection === "rock" && computerSelection === "rock") {
-                            alert("Rock and Rock. It\'s a tie.");
-                            return ties++;
-                        } else if (playerSelection === "paper" && computerSelection === "paper") {
-                            alert("Paper and Paper. It\'s a tie.");
-                            return ties++;
-                        } else if (playerSelection === "paper" && computerSelection === "scissors") {
-                            alert("You Lose! Scissors beat paper.");
-                            return losses++;
-                        } else if (playerSelection === "paper" && computerSelection === "rock") {
-                            alert("You Win! Paper beats rock.");
-                            return wins++;
-                        } else if (playerSelection === "scissors" && computerSelection === "paper") {
-                            alert("You Win! Scissors beat paper");
-                            return wins++;
-                        } else if (playerSelection === "scissors" && computerSelection === "scissors") {
-                            alert("Scissors and scissors. It\'s a tie.")
-                            return ties++;
-                        } else if (playerSelection === "scissors" && computerSelection === "rock") {
-                            alert("You Lose! Rock beats scissors.")
-                            return losses++;
-                        } else {
-                            alert("Please try again. Make sure to enter Rock, Scissors, or Paper.")
-                        }
-                        
-                    }
-
-
-                  
-
-                    //print outcome to console
-                    console.log(playGame(playerSelection, computerSelection))
-                    
-                    
-                
+                    playGame(playerSelection, computerSelection)
                 }
 
-            // }
-            console.log(losses)
+            }
 
-        
+        game()
 
-  
-
-
+        console.log(`Wins = ${wins}, Losses = ${losses}, & Ties = ${ties}.`)
 
     </script>
     
