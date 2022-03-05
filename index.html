@@ -43,11 +43,15 @@
                 return "You Win! Scissors beat paper";
             } else if (playerSelection == "scissors" && computerSelection == "scissors") {
                 return "Scissors and scissors. It\'s a tie."
-            } else {
+            } else if (playerSelection == "scissors" && computerSelection == "rock") {
                 return "You Lose! Rock beats scissors."
+            } else {
+                return "Please try again. Make sure to enter Rock, Scissors, or Paper."
             }
             
         }
+
+    alert(playGame(playerSelection, computerSelection))
 
     </script>
     
