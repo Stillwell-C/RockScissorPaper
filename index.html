@@ -7,14 +7,23 @@
 <body>
     <script>
 
-        var selectArray = [
-            "Rock",
-            "Scissors",
-            "Paper"
+        let selectArray = [ //Array for computerplay
+            "rock",
+            "scissors",
+            "paper"
         ]
-        function computerPlay() {
-            var selection = selectArray[Math.floor(Math.random()*selectArray.length)];
+
+        function computerPlay() { //Randomly output a selection
+            let selection = selectArray[Math.floor(Math.random()*selectArray.length)];
             return selection;
+        }
+
+        const computerSelection = computerPlay(); //Make variable for computer's selection
+
+        const playerSelection = prompt("Please select either rock, scissors, or paper", " ")  //Request player's selection
+
+        function playRound(playerSelection, computerSelection) {
+
         }
 
     </script>
