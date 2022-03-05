@@ -20,10 +20,30 @@
 
         const computerSelection = computerPlay(); //Make variable for computer's selection
 
-        const playerSelection = prompt("Please select either rock, scissors, or paper", " ")  //Request player's selection
+        const playerInput = prompt("Please select either rock, scissors, or paper", " ")  //Request player's input
 
-        function playRound(playerSelection, computerSelection) {
+        const playerSelection = playerInput.toLowerCase() //Changes player's input into lowercase
 
+        function playGame(playerSelection, computerSelection) {
+            if (playerSelection = "rock" && computerSelection = "paper") {
+                return "You Lose! Paper beats Rock.";
+            } else if (playerSelection = "rock" && computerSelection = "scissors") {
+                return "You Win! Rock beats Scissors.";
+            } else if (playerSelection = "rock" && computerSelection = "rock") {
+                return "Rock and Rock. It\'s a tie.";
+            } else if (playerSelection = "paper" && computerSelection = "paper") {
+                return "Paper and Paper. It\'s a tie.";
+            } else if (playerSelection = "paper" && computerSelection = "scissors") {
+                return "You Lose! Scissors beat paper.";
+            } else if (playerSelection = "paper" && computerSelection = "rock") {
+                return "You Win! Paper beats rock.";
+            } else if (playerSelection = "scissors" && computerSelection = "paper") {
+                return "You Win! Scissors beat paper";
+            } else if (playerSelection = "scissors" && computerSelection = "scissors") {
+                return "Scissors and scissors. It\'s a tie."
+            } else {
+                return "You Lose! Rock beats scissors."
+            }
         }
 
     </script>
