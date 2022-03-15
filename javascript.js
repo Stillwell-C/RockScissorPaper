@@ -50,26 +50,28 @@ let wins = 0;
             
         }
 
+        //Make variable for computer's selection
+        const computerSelection = computerPlay(); 
+                    
+        //Request player's input
+        let playerInput = prompt("Please select either rock, scissors, or paper", " ")  
 
-        function game() { 
+        //Changes player's input into lowercase
+        const playerSelection = playerInput.toLowerCase() 
+
+        playGame(playerSelection, computerSelection)
+
+
+        // function game() { 
 
             //Run playgame five times
-            for (let i = 0; i < 5; i++) { 
+            // for (let i = 0; i < 5; i++) { 
 
-                    //Make variable for computer's selection
-                    const computerSelection = computerPlay(); 
                     
-                    //Request player's input
-                    let playerInput = prompt("Please select either rock, scissors, or paper", " ")  
+            //     }
 
-                    //Changes player's input into lowercase
-                    const playerSelection = playerInput.toLowerCase() 
+            // }
 
-                    playGame(playerSelection, computerSelection)
-                }
+        // game()
 
-            }
-
-        game()
-
-        console.log(`Wins = ${wins}, Losses = ${losses}, & Ties = ${ties}.`)
+        console.log(`Wins = ${wins}, Losses = ${losses}, & Ties = ${ties}.`);
