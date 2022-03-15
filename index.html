@@ -26,32 +26,32 @@
         }
         
         //Take the selections and find a winner
-        function playGame(playerSelection, computerSelection) { 
-            if (playerSelection === "rock" && computerSelection === "paper") {
+        function playGame(a, b) { 
+            if (a === "rock" && b === "paper") {
                 alert("You Lose! Paper beats Rock.");
                 return losses++;
-            } else if (playerSelection === "rock" && computerSelection === "scissors") {
+            } else if (a === "rock" && b === "scissors") {
                 alert("You Win! Rock beats Scissors.");
                 return wins++;
-            } else if (playerSelection === "rock" && computerSelection === "rock") {
+            } else if (a === "rock" && b === "rock") {
                 alert("Rock and Rock. It\'s a tie.");
                 return ties++;
-            } else if (playerSelection === "paper" && computerSelection === "paper") {
+            } else if (a === "paper" && b === "paper") {
                 alert("Paper and Paper. It\'s a tie.");
                 return ties++;
-            } else if (playerSelection === "paper" && computerSelection === "scissors") {
+            } else if (a === "paper" && b === "scissors") {
                 alert("You Lose! Scissors beat paper.");
                 return losses++;
-            } else if (playerSelection === "paper" && computerSelection === "rock") {
+            } else if (a === "paper" && b === "rock") {
                 alert("You Win! Paper beats rock.");
                 return wins++;
-            } else if (playerSelection === "scissors" && computerSelection === "paper") {
+            } else if (a === "scissors" && b === "paper") {
                 alert("You Win! Scissors beat paper");
                 return wins++;
-            } else if (playerSelection === "scissors" && computerSelection === "scissors") {
+            } else if (a === "scissors" && b === "scissors") {
                 alert("Scissors and scissors. It\'s a tie.");
                 return ties++;
-            } else if (playerSelection === "scissors" && computerSelection === "rock") {
+            } else if (a === "scissors" && b === "rock") {
                 alert("You Lose! Rock beats scissors.");
                 return losses++;
             } else {
