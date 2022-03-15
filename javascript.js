@@ -44,39 +44,35 @@ function playGame(a, b) {
     } else if (a === "scissors" && b === "rock") {
         alert("You Lose! Rock beats scissors.");
         return losses++;
-    } else {
-        alert("Please try again. Make sure to enter Rock, Scissors, or Paper.");
-    }
-    
+    }    
 }
-
-let playerInput
-
-const rockBtn = document.querySelector('#rock');
-rockBtn.addEventListener('click', () => {
-    playerInput = "rock";
-    return playerInput;
-});
-
-const paperBtn = document.querySelector('#paper');
-paperBtn.addEventListener('click', () => {
-    playerInput = "paper";
-    return playerInput;
-})
-
-const scissorsBtn = document.querySelector('#scissors');
-scissorsBtn.addEventListener('click', () => {
-    playerInput = "scissors";
-    return playerInput;
-})
-
-
-
 
 // Make variable for computer's selection
 const computerSelection = computerPlay(); 
 
-let playerSelection = playerInput
+let playerSelection
+
+const rockBtn = document.querySelector('#rock');
+rockBtn.addEventListener('click', () => {
+    playerSelection = "rock";
+    playGame(playerSelection, computerSelection);
+});
+
+const paperBtn = document.querySelector('#paper');
+paperBtn.addEventListener('click', () => {
+    playerSelection = "paper";
+    playGame(playerSelection, computerSelection);
+})
+
+const scissorsBtn = document.querySelector('#scissors');
+scissorsBtn.addEventListener('click', () => {
+    playerSelection = "scissors";
+    playGame(playerSelection, computerSelection);
+})
+
+
+
+
             
 //Request player's input
 // let playerInput = prompt("Please select either rock, scissors, or paper", " ")  
@@ -84,7 +80,7 @@ let playerSelection = playerInput
 //Changes player's input into lowercase
 // const playerSelection = playerInput.toLowerCase() 
 
-// playGame(playerSelection, computerSelection)
+
 
 
 // function game() { 
