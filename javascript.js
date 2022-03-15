@@ -1,6 +1,3 @@
-const score = document.getElementById('#score');
-const buttons = document.querySelectorAll('button');
-
 
 let wins = 0;
 let losses = 0;
@@ -14,13 +11,15 @@ let selectArray = [
 ]
 
 // Make variable for computer's selection
-const computerSelection = computerPlay()
+let computerSelection 
 
 //Randomly output a selection
-function computerPlay() { 
-    let selection = selectArray[Math.floor(Math.random()*selectArray.length)];
-    return selection;
-}
+// function computerPlay() { 
+//     let computerSelection = selectArray[Math.floor(Math.random()*selectArray.length)];
+//     return computerSelection;
+// }
+
+
 
 
 //Take the selections and find a winner
@@ -56,18 +55,13 @@ function playGame(a, b) {
 }
 
 
-
-function updateScore() {
-    scoreContent.textContent = `Wins = ${wins}, Losses = ${losses}, & Ties = ${ties}.`
-}
-
 let playerSelection
 
 // Get player selection through buttons
 const rockBtn = document.querySelector('#rock');
 rockBtn.addEventListener('click', () => {
     playerSelection = "rock";
-    playGame(playerSelection, computerSelection);
+    playRound();
     updateScore();
 });
 
@@ -75,18 +69,22 @@ rockBtn.addEventListener('click', () => {
 const paperBtn = document.querySelector('#paper');
 paperBtn.addEventListener('click', () => {
     playerSelection = "paper";
-    playGame(playerSelection, computerSelection);
+    playRound();
     updateScore();
 });
 
 const scissorsBtn = document.querySelector('#scissors');
 scissorsBtn.addEventListener('click', () => {
     playerSelection = "scissors";
-    playGame(playerSelection, computerSelection);
+    playRound();
     updateScore();
 });
 
-
+function playRound() { 
+    computerSelection = selectArray[Math.floor(Math.random()*selectArray.length)];
+    playGame(playerSelection, computerSelection);
+    return computerSelection;
+}
             
 //Request player's input
 // let playerInput = prompt("Please select either rock, scissors, or paper", " ")  
@@ -109,9 +107,22 @@ scissorsBtn.addEventListener('click', () => {
 
 // game()
 const scoreContainer = document.querySelector('#score')
+
+const playerChoice = document.createElement('div');
+playerChoice.textContent = `Player: ${playerSelection}`;
+scoreContainer.appendChild(playerChoice);
+
+const computerChoice = document.createElement('div');
+computerChoice.textContent = `Computer: ${computerSelection}`;
+scoreContainer.appendChild(computerChoice);
+
 const scoreContent = document.createElement('div');
 scoreContent.classList.add('scoreContent')
 scoreContent.textContent = `Wins = ${wins}, Losses = ${losses}, & Ties = ${ties}.`
 scoreContainer.appendChild(scoreContent);
 
-// Display score
+function updateScore() {
+    playerChoice.textContent = `Player: ${playerSelection}`;
+    computerChoice.textContent = `Computer: ${computerSelection}`;
+    scoreContent.textContent = `Wins = ${wins}, Losses = ${losses}, & Ties = ${ties}.`
+}
