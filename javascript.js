@@ -1,3 +1,7 @@
+const score = document.getElementById('#score');
+const buttons = document.querySelectorAll('button');
+
+
 let wins = 0;
 let losses = 0;
 let ties = 0;
@@ -9,11 +13,15 @@ let selectArray = [
     "paper"
 ]
 
+// Make variable for computer's selection
+const computerSelection = computerPlay()
+
 //Randomly output a selection
 function computerPlay() { 
     let selection = selectArray[Math.floor(Math.random()*selectArray.length)];
     return selection;
 }
+
 
 //Take the selections and find a winner
 function playGame(a, b) { 
@@ -47,30 +55,36 @@ function playGame(a, b) {
     }    
 }
 
-// Make variable for computer's selection
-const computerSelection = computerPlay(); 
+
+
+function updateScore() {
+    scoreContent.textContent = `Wins = ${wins}, Losses = ${losses}, & Ties = ${ties}.`
+}
 
 let playerSelection
 
+// Get player selection through buttons
 const rockBtn = document.querySelector('#rock');
 rockBtn.addEventListener('click', () => {
     playerSelection = "rock";
     playGame(playerSelection, computerSelection);
+    updateScore();
 });
+
 
 const paperBtn = document.querySelector('#paper');
 paperBtn.addEventListener('click', () => {
     playerSelection = "paper";
     playGame(playerSelection, computerSelection);
-})
+    updateScore();
+});
 
 const scissorsBtn = document.querySelector('#scissors');
 scissorsBtn.addEventListener('click', () => {
     playerSelection = "scissors";
     playGame(playerSelection, computerSelection);
-})
-
-
+    updateScore();
+});
 
 
             
@@ -97,5 +111,7 @@ scissorsBtn.addEventListener('click', () => {
 const scoreContainer = document.querySelector('#score')
 const scoreContent = document.createElement('div');
 scoreContent.classList.add('scoreContent')
-scoreContent.textContent = `Wins = ${wins}, Losses = ${losses}, & Ties = ${ties}.`;
+scoreContent.textContent = `Wins = ${wins}, Losses = ${losses}, & Ties = ${ties}.`
 scoreContainer.appendChild(scoreContent);
+
+// Display score
